@@ -11,5 +11,5 @@ To clone all the Igor repos at once, you can follow these instructions (tested o
 - in the terminal, navigate to your User Procedures folder ```~/Documents/WaveMetrics/Igor Pro <version number> User Files/User Procedures```
 - clone all the Igor repos by executing
 ```
-curl -s https://[token]:@api.github.com/orgs/arpes-astrid/repos\?per_page\=200  | jq '.[] | select(.description | contains("Igor"))' | jq ".ssh_url" | xargs -n 1 git clone --recursive)
+curl -s https://[token]:@api.github.com/orgs/arpes-astrid/repos\?per_page\=200  | jq '.[] | select(.description | contains("Igor")) | .ssh_url' | xargs -n 1 git clone --recursive
 ```
